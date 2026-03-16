@@ -138,4 +138,91 @@ background:#001a00;
 font-size:18px;
 letter-spacing:2px;
 
+  /* SIDEBAR */
+
+.sidebar{
+position:absolute;
+right:40px;
+top:140px;
+width:220px;
+}
+
+/* WIDGET BOX */
+
+.widget{
+
+background:#001100;
+
+border:2px solid #00ff88;
+
+margin-bottom:20px;
+
+padding:10px;
+
+box-shadow:
+0 0 10px #00ff88,
+inset 0 0 10px #00ff88;
+
+}
+
+/* SCROLLBOX */
+
+.scrollbox{
+
+height:120px;
+
+overflow-y:auto;
+
+font-size:13px;
+
+}
+
+/* WEBRING */
+
+.webring img{
+
+width:88px;
+
+margin:5px;
+
+border:1px solid #00ff88;
+
+}
+
+/* 88x31 BUTTON ROW */
+
+.button88{
+
+margin-top:20px;
+
+}
+
+.button88 img{
+
+width:88px;
+margin:3px;
+
+border:1px solid #00ff88;
+
+}
+
+/* NAV */
+
+.nav a{
+
+border:1px solid #00ff88;
+padding:6px 12px;
+margin:5px;
+
+text-decoration:none;
+color:#8CFF8C;
+
+}
+
+.nav a:hover{
+
+background:#00ff88;
+color:black;
+
+}
 }
