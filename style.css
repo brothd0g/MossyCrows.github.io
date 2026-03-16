@@ -1,18 +1,22 @@
+/* IMPORT Y2K TECHNO FONT */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
 body{
-
-background:black;
-color:#7CFF7C;
-font-family:Orbitron, monospace;
 margin:0;
-
+background:#020402;
+color:#8CFF8C;
+font-family:'Orbitron', monospace;
+overflow-x:hidden;
 }
 
-/* scanning grid */
+/* CYBER GRID BACKGROUND */
 
 body::before{
-
 content:"";
 position:fixed;
+top:0;
+left:0;
 width:100%;
 height:100%;
 
@@ -21,16 +25,14 @@ linear-gradient(#00ff88 1px, transparent 1px),
 linear-gradient(90deg,#00ff88 1px, transparent 1px);
 
 background-size:40px 40px;
+opacity:0.18;
 
-opacity:0.2;
-z-index:-1;
-
+z-index:-2;
 }
 
-/* CRT scanlines */
+/* SCANNING LINES */
 
 .scanlines{
-
 position:fixed;
 width:100%;
 height:100%;
@@ -38,129 +40,102 @@ height:100%;
 background:repeating-linear-gradient(
 transparent 0px,
 transparent 2px,
-rgba(0,0,0,0.3) 3px
+rgba(0,0,0,0.35) 3px
 );
 
 pointer-events:none;
-
+z-index:5;
 }
 
-/* container */
+/* MAIN CONTAINER */
 
 .container{
-
 width:1000px;
 margin:auto;
-padding:20px;
-
+padding:40px;
 }
 
-/* glowing panels */
+/* TITLE */
 
-.panel{
+.logo{
+text-align:center;
+font-size:40px;
+letter-spacing:6px;
+
+color:#aaffaa;
+
+text-shadow:
+0 0 10px #00ff88,
+0 0 20px #00ff88,
+0 0 40px #00ff88;
+}
+
+/* OC GRID */
+
+.ocgrid{
+display:flex;
+justify-content:center;
+gap:40px;
+margin-top:50px;
+}
+
+/* CHARACTER CARDS */
+
+.occard{
+
+background:rgba(0,0,0,0.8);
 
 border:2px solid #00ff88;
-padding:20px;
+
+width:220px;
+
+padding:15px;
+
+text-align:center;
+
+text-decoration:none;
+
+color:#8CFF8C;
 
 box-shadow:
 0 0 10px #00ff88,
 inset 0 0 10px #00ff88;
 
+transition:all .25s;
 }
 
-/* nav */
+/* IMAGE */
 
-.nav a{
+.occard img{
 
-margin:10px;
-color:#7CFF7C;
-text-decoration:none;
-
-border:1px solid #00ff88;
-padding:5px 15px;
-
-}
-
-.nav a:hover{
-
-background:#00ff88;
-color:black;
-
-}
-
-/* oc grid */
-
-.ocgrid{
-
-display:flex;
-gap:40px;
-justify-content:center;
-
-}
-
-.occard{
+width:100%;
 
 border:2px solid #00ff88;
-padding:10px;
-text-align:center;
 
-width:200px;
+margin-bottom:10px;
 
 }
+
+/* HOVER EFFECT */
 
 .occard:hover{
 
-transform:scale(1.05);
-box-shadow:0 0 15px #00ff88;
+transform:scale(1.07);
+
+box-shadow:
+0 0 20px #00ff88,
+0 0 40px #00ff88,
+inset 0 0 20px #00ff88;
+
+background:#001a00;
 
 }
 
-/* profile layout */
+/* TEXT */
 
-.profile{
+.occard p{
 
-display:flex;
-gap:20px;
-
-}
-
-.leftpanel{
-
-width:300px;
-
-}
-
-.rightpanel{
-
-flex:1;
-
-}
-
-/* tabs */
-
-.tabs button{
-
-background:black;
-color:#00ff88;
-
-border:1px solid #00ff88;
-
-padding:10px;
-
-margin-right:5px;
-
-}
-
-.tabs button:hover{
-
-background:#00ff88;
-color:black;
-
-}
-
-.tabcontent{
-
-display:none;
-margin-top:20px;
+font-size:18px;
+letter-spacing:2px;
 
 }
