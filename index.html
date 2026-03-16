@@ -1,90 +1,133 @@
-<!DOCTYPE html>
-<html>
-<head>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
-<title>Ash.exe</title>
+body{
+margin:0;
+background:#020402;
+color:#8CFF8C;
+font-family:'Orbitron', monospace;
+overflow-x:hidden;
+}
 
-<link rel="stylesheet" href="style.css">
+/* GRID BACKGROUND */
 
-</head>
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
 
-<body>
+background-image:
+linear-gradient(#00ff88 1px, transparent 1px),
+linear-gradient(90deg,#00ff88 1px, transparent 1px);
 
-<div class="scanlines"></div>
+background-size:40px 40px;
+opacity:0.18;
+z-index:-2;
+}
 
-<div class="container">
+/* SCANLINES */
 
-<h1 class="logo"> PORTFOLIO </h1>
+.scanlines{
+position:fixed;
+width:100%;
+height:100%;
 
-<div class="nav">
+background:repeating-linear-gradient(
+transparent 0px,
+transparent 2px,
+rgba(0,0,0,0.35) 3px
+);
 
-<a href="index.html">HOME</a>
-<a href="ocs.html">OC DATABASE</a>
-<a href="#">ART</a>
-<a href="#">LINKS</a>
+pointer-events:none;
+z-index:5;
+}
 
-</div>
-<div class="sidebar">
+/* MAIN AREA */
 
-<div class="widget">
+.container{
+width:1000px;
+margin:auto;
+padding:40px;
+}
 
-<h3>updates.txt</h3>
+/* TITLE */
 
-<div class="scrollbox">
+.logo{
+text-align:center;
+font-size:40px;
+letter-spacing:6px;
 
-<p>5/10 — added OC database</p>
-<p>5/11 — fixed Ardos page</p>
-<p>5/12 — site online</p>
+color:#aaffaa;
 
-</div>
+text-shadow:
+0 0 10px #00ff88,
+0 0 20px #00ff88,
+0 0 40px #00ff88;
+}
 
-</div>
+/* NAV */
 
-<div class="widget">
+.nav a{
+border:1px solid #00ff88;
+padding:6px 12px;
+margin:5px;
+text-decoration:none;
+color:#8CFF8C;
+}
 
-<h3>tunes</h3>
+.nav a:hover{
+background:#00ff88;
+color:black;
+}
 
-<p>🎵 How To Never Stop Being Sad</p>
-<p>🎵 King For A Day</p>
-<p>🎵 And Im Gone</p>
+/* SIDEBAR */
 
-</div>
+.sidebar{
+position:absolute;
+right:40px;
+top:140px;
+width:220px;
+}
 
-<div class="widget">
+/* WIDGETS */
 
-<h3>guestbook</h3>
+.widget{
+background:#001100;
+border:2px solid #00ff88;
+margin-bottom:20px;
+padding:10px;
 
-<p>sign my guestbook!</p>
+box-shadow:
+0 0 10px #00ff88,
+inset 0 0 10px #00ff88;
+}
 
-</div>
+/* SCROLLBOX */
 
-</div>
-<div class="panel">
+.scrollbox{
+height:120px;
+overflow-y:auto;
+font-size:13px;
+}
 
-<h2>WELCOME</h2>
+/* PANEL */
 
-<p>
-Welcome to my archive. This site contains
-art, characters, stupid shit.
+.panel{
+background:#001100;
+border:2px solid #00ff88;
+padding:20px;
 
-</div>
+box-shadow:
+0 0 10px #00ff88,
+inset 0 0 10px #00ff88;
+}
 
-<div class="buttonbar">
+/* WEB BUTTONS */
 
-<button>Insta</button>
-<button>Tublr</button>
-<button>Tiktok</button>
-<button>BlueSky</button>
-
-</div>
-<div class="button88">
-
-<img src="button1.gif">
-<img src="button2.gif">
-<img src="button3.gif">
-<img src="button4.gif">
-
-</div>
-
-</body>
-</html>
+.button88 img{
+width:88px;
+margin:3px;
+border:1px solid #00ff88;
+}
