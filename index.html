@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ash's Art Portfolio</title>
+
+<style>
+
+body{
+background:black;
+color:white;
+font-family:"Verdana",sans-serif;
+text-align:center;
+margin:0;
+}
+
+/* star background */
+body{
+background-image:url("https://www.transparenttextures.com/patterns/stardust.png");
+}
+
+/* header */
+.header{
+background:linear-gradient(90deg,#ff00ff,#00ffff);
+padding:20px;
+font-size:40px;
+font-weight:bold;
+text-shadow:0 0 10px white;
+}
+
+/* navigation buttons */
+.nav{
+margin:20px;
+}
+
+.nav button{
+background:black;
+border:2px solid cyan;
+color:white;
+padding:10px 20px;
+margin:5px;
+cursor:pointer;
+font-size:16px;
+}
+
+.nav button:hover{
+background:cyan;
+color:black;
+}
+
+/* gallery grid */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,200px);
+gap:20px;
+justify-content:center;
+padding:20px;
+}
+
+.gallery img{
+width:200px;
+border:3px solid white;
+box-shadow:0 0 10px cyan;
+}
+
+/* footer */
+.footer{
+margin-top:40px;
+font-size:14px;
+opacity:0.7;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+ASH'S ART PORTFOLIO
+</div>
+
+<div class="nav">
+<button>Home</button>
+<button>Gallery</button>
+<button>About</button>
+<button>Links</button>
+</div>
+
+<h2>My Art</h2>
+
+<div class="gallery">
+
+<img src="art1.jpg">
+<img src="art2.jpg">
+<img src="art3.jpg">
+<img src="art4.jpg">
+
+</div>
+
+<div class="footer">
+© 2003 Ash's Website ✨
+</div>
+
+</body>
+</html>
