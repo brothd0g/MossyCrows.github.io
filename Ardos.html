@@ -1,154 +1,105 @@
  (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a/Ardos.html b/Ardos.html
-index e430b4cc8a94449d82b9bd6a102c4431329376a9..fc9bf8df2364d71a1b85e124a9f5cd65aeb77432 100644
---- a/Ardos.html
-+++ b/Ardos.html
-@@ -1,32 +1,146 @@
- <!DOCTYPE html>
- <html>
- <head>
- 
- <title>Character Profile</title>
- 
--<link rel="stylesheet" href="style.css">
-+<style>
-+:root {
-+  --bg: #020503;
-+  --panel: (3, 22, 8, 0.92);
-+  --line: #0cff67;
-+  --text: #b8ffc7;
-+}
+diff --git a/ardos.html b/ardos.html
+new file mode 100644
+index 0000000000000000000000000000000000000000..46bff70641198b024eb137e452d38e9e6e552b9f
+--- /dev/null
++++ b/ardos.html
+@@ -0,0 +1,95 @@
++<!DOCTYPE html>
++<html lang="en">
++  <head>
++    <meta charset="UTF-8" />
++    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++    <title>Mossy Crows | Ardos</title>
++    <link rel="preconnect" href="https://fonts.googleapis.com" />
++    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
++    <link
++      href="https://fonts.googleapis.com/css2?family=Concert+One&family=VT323&family=IBM+Plex+Mono:wght@400;500;700&display=swap"
++      rel="stylesheet"
++    />
++    <link rel="stylesheet" href="style.css" />
++  </head>
++  <body data-page="ardos">
++    <div class="stars"></div>
++    <div class="scanlines"></div>
 +
-+* { box-sizing: border-box; }
-+body {
-+  margin: 0;
-+  min-height: 100;
-+  background:
-+    radial-gradient(circle at top, rgba(23, 120, 61, 0.25), transparent 30%),
-+    #020503;
-+  color: var(--text);
-+  font-family: "Share Tech Mono", monospace;
-+}
-+body::before {
-+  content: "";
-+  position: fixed;
-+  inset: 0;
-+  background-image:
-+    linear-gradient(rgba(12,255,103,0.1) 1px, transparent 1px),
-+    linear-gradient(90deg, rgba(12,255,103,0.1) 1px, transparent 1px);
-+  background-size: 28px 28px;
-+  z-index: -2;
-+}
-+.scanlines {
-+  position: fixed;
-+  inset: 0;
-+  pointer-events: none;
-+  background: repeating-linear-gradient(transparent 0 2px, rgba(0,0,0,0.3) 3px 4px);
-+}
-+.container {
-+  width: min(1100px, 94vw);
-+  margin: 0 auto;
-+  padding: 2rem 1rem 3rem;
-+}
-+.logo {
-+  margin: 0 0 1rem;
-+  text-align: center;
-+  font-family: "VT323", monospace;
-+  font-size: clamp(2rem, 5vw, 3.5rem);
-+  letter-spacing: 3px;
-+  text-shadow: 0 0 12px rgba(12,255,103,0.6);
-+}
-+.profile {
-+  display: grid;
-+  grid-template-columns: 280px 1fr;
-+  gap: 1rem;
-+}
-+.leftpanel,
-+.rightpanel,
-+.infobox,
-+.tabcontent,
-+.tabs {
-+  border: 2px solid var(--line);
-+  background: var(--panel);
-+  box-shadow: 0 0 12px rgba(12,255,103,0.25), inset 0 0 14px rgba(12,255,103,0.1);
-+}
-+.leftpanel,
-+.rightpanel {
-+  padding: 1rem;
-+}
-+.leftpanel img,
-+#gallery img {
-+  width: 100%;
-+  border: 1px solid var(--line);
-+}
-+.infobox {
-+  margin-top: 1rem;
-+  padding: 0.75rem;
-+}
-+.tabs {
-+  display: flex;
-+  flex-wrap: wrap;
-+  gap: 0.5rem;
-+  margin-bottom: 1rem;
-+  padding: 0.75rem;
-+}
-+.tabs button {
-+  border: 1px solid var(--line);
-+  background: rgba(8, 68, 28, 0.4);
-+  color: var(--text);
-+  padding: 0.4rem 0.75rem;
-+  font-family: inherit;
-+  cursor: pointer;
-+}
-+.tabs button:hover,
-+.tabs button:focus-visible {
-+  background: var(--line);
-+  color: #001b0a;
-+}
-+.tabcontent {
-+  padding: 1rem;
-+}
-+#bio {
-+  max-height: 70vh;
-+  overflow: auto;
-+  white-space: pre-line;
-+}
-+#gallery {
-+  display: grid;
-+  grid-template-columns: repeat(2, minmax(0, 1fr));
-+  gap: 1rem;
-+}
-+ul { margin: 0; padding-left: 1.2rem; }
-+@media (max-width: 760px) {
-+  .profile { grid-template-columns: 1fr; }
-+  #gallery { grid-template-columns: 1fr; }
-+}
-+</style>
- 
- </head>
- 
- <body>
- 
- <div class="scanlines"></div>
- 
- <div class="container">
- 
- <h1 class="logo">CHARACTER FILE</h1>
- 
- <div class="profile">
- 
- <div class="leftpanel">
- 
- <img src="character1.png">
- 
- <div class="infobox">
- 
- <p><b>Name:</b> Ardos </p>
- <p><b>Age:</b> ???</p>
- <p><b>Alias:</b> ???</p>
- 
- </div>
- 
++    <div class="page-shell">
++      <aside class="floating-rail left-rail">
++        <div class="gif-slot">ARDOS GIF</div>
++        <div class="sticker rotate-left">
++          <p>ardos shrine</p>
++          <span>add mood icons, tiny stamps, or a favorite quote here.</span>
++        </div>
++      </aside>
++
++      <main class="subpage-grid">
++        <section class="panel page-hero">
++          <div>
++            <p class="eyebrow">OC shrine // 01</p>
++            <h1>Ardos</h1>
++            <p>
++              This page is ready for Ardos art, lore blurbs, favorite motifs, and whatever side notes you want.
++              Replace every placeholder with your own work and edit the lists so the page feels personal.
++            </p>
++            <a class="back-link" href="index.html">&larr; back to home</a>
++          </div>
++          <div class="art-placeholder">Ardos hero illustration</div>
++        </section>
++
++        <section class="panel wide-panel info-strip">
++          <div class="info-list">
++            <p class="section-label">profile</p>
++            <ul>
++              <li>title / role</li>
++              <li>favorite color</li>
++              <li>signature symbol</li>
++              <li>one-sentence summary</li>
++            </ul>
++          </div>
++          <div class="mood-card">
++            <p class="section-label">moodboard notes</p>
++            <ul>
++              <li>storms + static</li>
++              <li>metallic jewelry</li>
++              <li>late-night city lights</li>
++            </ul>
++          </div>
++          <div class="mood-card">
++            <p class="section-label">quote slot</p>
++            <p>
++              Add a favorite line, song lyric fragment, or a paragraph of character trivia here.
++            </p>
++          </div>
++        </section>
++
++        <section class="panel gallery-panel">
++          <div class="panel-headline">
++            <h2>Ardos gallery</h2>
++            <span>5 image slots ready for uploads</span>
++          </div>
++          <div class="gallery-grid">
++            <article class="gallery-item"><div class="gallery-image">Ardos image 01</div><h3>portrait</h3><p class="caption">Use this slot for a polished portrait.</p></article>
++            <article class="gallery-item"><div class="gallery-image">Ardos image 02</div><h3>full body</h3><p class="caption">Outfit ref, full-body art, or a sketch page.</p></article>
++            <article class="gallery-item"><div class="gallery-image">Ardos image 03</div><h3>expression set</h3><p class="caption">A fun place for face studies or reaction doodles.</p></article>
++            <article class="gallery-item"><div class="gallery-image">Ardos image 04</div><h3>scene art</h3><p class="caption">Use this for an atmospheric piece or dramatic scene.</p></article>
++            <article class="gallery-item"><div class="gallery-image">Ardos image 05</div><h3>bonus</h3><p class="caption">Memes, old art comparison, or a favorite detail shot.</p></article>
++          </div>
++        </section>
++      </main>
++
++      <aside class="floating-rail right-rail">
++        <div class="mini-player panel">
++          <p class="section-label">soundtrack</p>
++          <h3>Ardos playlist</h3>
++          <p>Keep a mini playlist, mood songs, or scene inspiration here.</p>
++        </div>
++        <div class="gif-slot">STAMP SLOT</div>
++      </aside>
++    </div>
++
++    <script src="script.js"></script>
++  </body>
++</html>
  
 EOF
 )
