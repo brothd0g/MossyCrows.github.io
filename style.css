@@ -470,7 +470,7 @@ margin:5px;
 
 text-decoration:none;
 color:#8CFF8C;
-@keyframes bounce {
+ bounce {
   0%,
   100% {
     height: 8px;
@@ -483,9 +483,9 @@ color:#8CFF8C;
 
 .nav a:hover{
 @keyframes blink {
-  0,
-  48,
-  100 {
+  0%,
+  48%,
+  100% {
     opacity: 1;
   }
 
@@ -506,4 +506,3 @@ color:black;
   .gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-}
