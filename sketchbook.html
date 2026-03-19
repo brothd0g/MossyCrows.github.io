@@ -1,0 +1,116 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/sketchbook.html b/sketchbook.html
+new file mode 100644
+index 0000000000000000000000000000000000000000..d902ceec97f1b4f81d0e29c3a6e4fe56fcbda950
+--- /dev/null
++++ b/sketchbook.html
+@@ -0,0 +1,106 @@
++<!DOCTYPE html>
++<html lang="en">
++  <head>
++    <meta charset="UTF-8" />
++    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++    <title>Mossy Crows | Sketchbook</title>
++    <link rel="preconnect" href="https://fonts.googleapis.com" />
++    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
++    <link
++      href="https://fonts.googleapis.com/css2?family=Concert+One&family=VT323&family=IBM+Plex+Mono:wght@400;500;700&display=swap"
++      rel="stylesheet"
++    />
++    <link rel="stylesheet" href="style.css" />
++  </head>
++  <body data-page="sketchbook">
++    <div class="stars"></div>
++    <div class="scanlines"></div>
++
++    <div class="page-shell">
++      <aside class="floating-rail left-rail">
++        <div class="sticker rotate-left">
++          <p>sketchbook archive</p>
++          <span>photograph each page and replace the placeholders one by one.</span>
++        </div>
++        <div class="gif-slot">PAPER GIF</div>
++      </aside>
++
++      <main class="subpage-grid">
++        <section class="panel page-hero">
++          <div>
++            <p class="eyebrow">archive // sketchbook</p>
++            <h1>Online Sketchbook</h1>
++            <p>
++              This page is pre-built for around 30 pages, which should make it easy to upload
++              photos from your physical sketchbook and keep everything in one place.
++            </p>
++            <a class="back-link" href="index.html">&larr; back to home</a>
++          </div>
++          <div class="paper-preview">cover page or collage</div>
++        </section>
++
++        <section class="panel tips-panel">
++          <div class="panel-headline">
++            <h2>Upload notes</h2>
++            <span>replace placeholders with your own images later</span>
++          </div>
++          <ul class="spark-list">
++            <li>Photograph pages in good daylight for cleaner colors.</li>
++            <li>Crop each image to the page edges before swapping it in.</li>
++            <li>Use captions for dates, mediums, or favorite doodles.</li>
++          </ul>
++        </section>
++
++        <section class="panel wide-panel">
++          <div class="panel-headline">
++            <h2>Sketchbook pages</h2>
++            <span>30 ready-made slots</span>
++          </div>
++          <div class="sketchbook-grid">
++            <article class="paper-card"><div class="paper-preview">page 01</div></article>
++            <article class="paper-card"><div class="paper-preview">page 02</div></article>
++            <article class="paper-card"><div class="paper-preview">page 03</div></article>
++            <article class="paper-card"><div class="paper-preview">page 04</div></article>
++            <article class="paper-card"><div class="paper-preview">page 05</div></article>
++            <article class="paper-card"><div class="paper-preview">page 06</div></article>
++            <article class="paper-card"><div class="paper-preview">page 07</div></article>
++            <article class="paper-card"><div class="paper-preview">page 08</div></article>
++            <article class="paper-card"><div class="paper-preview">page 09</div></article>
++            <article class="paper-card"><div class="paper-preview">page 10</div></article>
++            <article class="paper-card"><div class="paper-preview">page 11</div></article>
++            <article class="paper-card"><div class="paper-preview">page 12</div></article>
++            <article class="paper-card"><div class="paper-preview">page 13</div></article>
++            <article class="paper-card"><div class="paper-preview">page 14</div></article>
++            <article class="paper-card"><div class="paper-preview">page 15</div></article>
++            <article class="paper-card"><div class="paper-preview">page 16</div></article>
++            <article class="paper-card"><div class="paper-preview">page 17</div></article>
++            <article class="paper-card"><div class="paper-preview">page 18</div></article>
++            <article class="paper-card"><div class="paper-preview">page 19</div></article>
++            <article class="paper-card"><div class="paper-preview">page 20</div></article>
++            <article class="paper-card"><div class="paper-preview">page 21</div></article>
++            <article class="paper-card"><div class="paper-preview">page 22</div></article>
++            <article class="paper-card"><div class="paper-preview">page 23</div></article>
++            <article class="paper-card"><div class="paper-preview">page 24</div></article>
++            <article class="paper-card"><div class="paper-preview">page 25</div></article>
++            <article class="paper-card"><div class="paper-preview">page 26</div></article>
++            <article class="paper-card"><div class="paper-preview">page 27</div></article>
++            <article class="paper-card"><div class="paper-preview">page 28</div></article>
++            <article class="paper-card"><div class="paper-preview">page 29</div></article>
++            <article class="paper-card"><div class="paper-preview">page 30</div></article>
++          </div>
++        </section>
++      </main>
++
++      <aside class="floating-rail right-rail">
++        <div class="gif-slot">DOODLE GIF</div>
++        <div class="mini-player panel">
++          <p class="section-label">notes</p>
++          <h3>archive extras</h3>
++          <p>Add dates, media notes, or a little diary paragraph about your sketchbook here.</p>
++        </div>
++      </aside>
++    </div>
++
++    <script src="script.js"></script>
++  </body>
++</html>
+ 
+EOF
+)
