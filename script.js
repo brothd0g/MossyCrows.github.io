@@ -1,17 +1,17 @@
 const guestbookKey = 'mossycrows_guestbook_entries_v1';
 const seedEntries = [
   {
-    name: 'solstice.exe',
-    message: 'this theme RULES',
+    name: 'solstice',
+    message: 'this is so cool',
     createdAt: '2026-03-15T09:10:00.000Z'
   },
   {
-    name: 'voidangel',
+    name: 'Ang3l0099',
     message: 'bookmarked instantly',
     createdAt: '2026-03-14T21:45:00.000Z'
   },
   {
-    name: 'mosswire',
+    name: 'bluehonu',
     message: 'post process videos next!',
     createdAt: '2026-03-13T13:20:00.000Z'
   }
