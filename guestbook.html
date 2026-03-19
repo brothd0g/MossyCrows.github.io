@@ -1,0 +1,88 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/guestbook.html b/guestbook.html
+new file mode 100644
+index 0000000000000000000000000000000000000000..fead1e6af1658a77c0fa01336a3b3f70a93e189d
+--- /dev/null
++++ b/guestbook.html
+@@ -0,0 +1,78 @@
++<!DOCTYPE html>
++<html lang="en">
++  <head>
++    <meta charset="UTF-8" />
++    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++    <title>Mossy Crows | Guestbook</title>
++    <link rel="preconnect" href="https://fonts.googleapis.com" />
++    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
++    <link
++      href="https://fonts.googleapis.com/css2?family=Concert+One&family=VT323&family=IBM+Plex+Mono:wght@400;500;700&display=swap"
++      rel="stylesheet"
++    />
++    <link rel="stylesheet" href="style.css" />
++  </head>
++  <body data-page="guestbook">
++    <div class="stars"></div>
++    <div class="scanlines"></div>
++
++    <div class="page-shell">
++      <aside class="floating-rail left-rail">
++        <div class="sticker rotate-left">
++          <p>guestbook</p>
++          <span>local browser version for now — easy to swap out later for a public one.</span>
++        </div>
++        <div class="gif-slot">HELLO GIF</div>
++      </aside>
++
++      <main class="subpage-grid">
++        <section class="panel page-hero">
++          <div>
++            <p class="eyebrow">interactive // guestbook</p>
++            <h1>Sign My Guestbook</h1>
++            <p>
++              This version stores entries in the visitor's browser so you can test the page styling immediately.
++              If you want a real shared guestbook later, this layout can be connected to a hosted form or backend.
++            </p>
++            <a class="back-link" href="index.html">&larr; back to home</a>
++          </div>
++          <div class="art-placeholder">guestbook sign art</div>
++        </section>
++
++        <section class="panel guestbook-panel">
++          <div class="guestbook-layout">
++            <form class="guestbook-form" id="guestbook-form">
++              <p class="section-label">leave a message</p>
++              <label>
++                Name
++                <input id="guest-name" name="name" maxlength="40" placeholder="your cool internet alias" required />
++              </label>
++              <label>
++                Message
++                <textarea id="guest-message" name="message" maxlength="280" placeholder="say hi, leave a compliment, drop a tiny thought..." required></textarea>
++              </label>
++              <button type="submit">post entry</button>
++              <p class="form-note" id="guestbook-notice">Entries are saved per browser in this starter version.</p>
++            </form>
++
++            <section class="guestbook-list">
++              <p class="section-label">recent entries</p>
++              <div class="guestbook-entries" id="guestbook-list"></div>
++            </section>
++          </div>
++        </section>
++      </main>
++
++      <aside class="floating-rail right-rail">
++        <div class="mini-player panel">
++          <p class="section-label">future upgrade</p>
++          <h3>shared guestbook</h3>
++          <p>When you're ready, this panel can explain where messages are sent or link to a public service.</p>
++        </div>
++        <div class="gif-slot">STAMPS</div>
++      </aside>
++    </div>
++
++    <script src="script.js"></script>
++  </body>
++</html>
+ 
+EOF
+)
