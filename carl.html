@@ -1,0 +1,105 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/carl.html b/carl.html
+new file mode 100644
+index 0000000000000000000000000000000000000000..b8d33893dddf74a053b8128edb2ff25af00b87e2
+--- /dev/null
++++ b/carl.html
+@@ -0,0 +1,95 @@
++<!DOCTYPE html>
++<html lang="en">
++  <head>
++    <meta charset="UTF-8" />
++    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++    <title>Mossy Crows | Carl</title>
++    <link rel="preconnect" href="https://fonts.googleapis.com" />
++    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
++    <link
++      href="https://fonts.googleapis.com/css2?family=Concert+One&family=VT323&family=IBM+Plex+Mono:wght@400;500;700&display=swap"
++      rel="stylesheet"
++    />
++    <link rel="stylesheet" href="style.css" />
++  </head>
++  <body data-page="carl">
++    <div class="stars"></div>
++    <div class="scanlines"></div>
++
++    <div class="page-shell">
++      <aside class="floating-rail left-rail">
++        <div class="gif-slot">CARL GIF</div>
++        <div class="sticker rotate-left">
++          <p>carl shrine</p>
++          <span>perfect for weird little badges, stamps, or pixel icons.</span>
++        </div>
++      </aside>
++
++      <main class="subpage-grid">
++        <section class="panel page-hero">
++          <div>
++            <p class="eyebrow">OC shrine // 03</p>
++            <h1>Carl</h1>
++            <p>
++              Carl's page keeps the same shrine structure so the site feels cohesive,
++              but you still get plenty of room to customize the mood with different art and notes.
++            </p>
++            <a class="back-link" href="index.html">&larr; back to home</a>
++          </div>
++          <div class="art-placeholder">Carl hero illustration</div>
++        </section>
++
++        <section class="panel wide-panel info-strip">
++          <div class="info-list">
++            <p class="section-label">profile</p>
++            <ul>
++              <li>nickname / alias</li>
++              <li>core colors</li>
++              <li>main conflict</li>
++              <li>signature prop</li>
++            </ul>
++          </div>
++          <div class="mood-card">
++            <p class="section-label">keywords</p>
++            <ul>
++              <li>flickering signage</li>
++              <li>road trip snapshots</li>
++              <li>messy notebooks</li>
++            </ul>
++          </div>
++          <div class="mood-card">
++            <p class="section-label">extra lore</p>
++            <p>
++              This is a nice spot for relationship summaries, timeline notes, or fun facts.
++            </p>
++          </div>
++        </section>
++
++        <section class="panel gallery-panel">
++          <div class="panel-headline">
++            <h2>Carl gallery</h2>
++            <span>5 image slots ready for uploads</span>
++          </div>
++          <div class="gallery-grid">
++            <article class="gallery-item"><div class="gallery-image">Carl image 01</div><h3>main portrait</h3><p class="caption">Use this for Carl's key visual.</p></article>
++            <article class="gallery-item"><div class="gallery-image">Carl image 02</div><h3>messy sketch</h3><p class="caption">Great for raw energy and sketchbook scans.</p></article>
++            <article class="gallery-item"><div class="gallery-image">Carl image 03</div><h3>lineup</h3><p class="caption">Try references, expressions, or proportion notes.</p></article>
++            <article class="gallery-item"><div class="gallery-image">Carl image 04</div><h3>comic panel</h3><p class="caption">Put a dialogue moment or scene cut here.</p></article>
++            <article class="gallery-item"><div class="gallery-image">Carl image 05</div><h3>detail shot</h3><p class="caption">Close-ups and cropped details work well here too.</p></article>
++          </div>
++        </section>
++      </main>
++
++      <aside class="floating-rail right-rail">
++        <div class="mini-player panel">
++          <p class="section-label">playlist</p>
++          <h3>Carl songs</h3>
++          <p>Use this panel for songs, quotes, or a tiny bio blurb.</p>
++        </div>
++        <div class="gif-slot">STAMP SLOT</div>
++      </aside>
++    </div>
++
++    <script src="script.js"></script>
++  </body>
++</html>
+ 
+EOF
+)
