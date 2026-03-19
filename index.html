@@ -136,11 +136,365 @@ border:1px solid #00ff88;
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mossy Crows Portfolio </title>
+  <title>Mossy Crows // Cyber Shrine</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root {
+      --bg: #010401;
+      --line: #0cff67;
+      --text: #b8ffc7;
+      --highlight: #75ff9d;
+      --panel-top: rgba(2, 20, 7, 0.95);
+      --panel-bottom: rgba(2, 10, 4, 0.9);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background-color: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(circle at 10% 15%, rgba(56, 255, 130, 0.13), transparent 30%),
+        radial-gradient(circle at 80% 30%, rgba(37, 140, 74, 0.2), transparent 35%),
+        radial-gradient(circle at 40% 80%, rgba(9, 70, 26, 0.35), transparent 45%);
+      color: var(--text);
+      font-family: 'Share Tech Mono', monospace;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      background-image:
+        linear-gradient(rgba(12, 255, 103, 0.13) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(12, 255, 103, 0.13) 1px, transparent 1px);
+      background-size: 26px 26px;
+    }
+
+    .scanlines,
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .scanlines {
+      z-index: 4;
+      background: repeating-linear-gradient(
+        to bottom,
+        transparent 0 2px,
+        rgba(0, 0, 0, 0.28) 3px 4px
+      );
+    }
+
+    .noise {
+      z-index: 3;
+      opacity: 0.08;
+      background-image: radial-gradient(#8dffae 0.7px, transparent 0.7px);
+      background-size: 3px 3px;
+    }
+
+    .site-shell {
+      position: relative;
+      z-index: 1;
+      width: min(1200px, 95vw);
+      margin: 1rem auto 2rem;
+    }
+
+    .panel {
+      padding: 0.9rem;
+      border: 2px solid var(--line);
+      background: linear-gradient(180deg, var(--panel-top), var(--panel-bottom));
+      box-shadow:
+        0 0 12px rgba(12, 255, 103, 0.45),
+        inset 0 0 18px rgba(12, 255, 103, 0.15);
+    }
+
+    .hero {
+      margin-bottom: 0.75rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      margin: 0.4rem 0;
+      color: var(--highlight);
+      font-family: 'VT323', monospace;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      letter-spacing: 3px;
+      text-shadow:
+        0 0 10px rgba(117, 255, 157, 0.8),
+        0 0 24px rgba(12, 255, 103, 0.4);
+    }
+
+    .stamp {
+      display: inline-block;
+      margin: 0;
+      padding: 0.2rem 0.45rem;
+      border: 1px dashed var(--line);
+      background: rgba(7, 59, 22, 0.5);
+    }
+
+    .tagline {
+      margin: 0 0 0.6rem;
+    }
+
+    .topnav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.55rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .topnav a {
+      padding: 0.25rem 0.55rem;
+      border: 1px solid var(--line);
+      background: rgba(7, 59, 22, 0.35);
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .topnav a:hover,
+    .topnav a:focus-visible {
+      background: var(--line);
+      color: #001b0a;
+    }
+
+    .layout-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.5fr 0.9fr;
+      gap: 0.75rem;
+    }
+
+    .widget,
+    .intro {
+      margin-bottom: 0.75rem;
+    }
+
+    h2 {
+      margin: 0 0 0.45rem;
+      font-family: 'VT323', monospace;
+      font-size: 1.6rem;
+      letter-spacing: 1px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.3rem;
+    }
+
+    .buttons span {
+      padding: 0.25rem;
+      border: 1px solid var(--line);
+      background: rgba(14, 68, 30, 0.45);
+      font-size: 0.72rem;
+      text-align: center;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+    }
+
+    .art {
+      height: 120px;
+      border: 1px solid var(--line);
+      box-shadow: inset 0 0 16px rgba(12, 255, 103, 0.2);
+    }
+
+    .art-1 {
+      background: linear-gradient(140deg, #061f0d, #2a8f4a, #061f0d);
+    }
+
+    .art-2 {
+      background: linear-gradient(20deg, #0a280f, #174422, #67dc8b);
+    }
+
+    .art-3 {
+      background: linear-gradient(160deg, #74ec99, #0b240f, #164327);
+    }
+
+    .art-4 {
+      background: linear-gradient(50deg, #0e3319, #142a17, #4db56f);
+    }
+
+    .art-5 {
+      background: linear-gradient(120deg, #051b09, #2f6e43, #0e361a);
+    }
+
+    .art-6 {
+      background: linear-gradient(45deg, #6eff9b, #163e22, #041307);
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    figcaption {
+      margin-top: 0.2rem;
+      font-size: 0.75rem;
+    }
+
+    .equalizer {
+      display: flex;
+      align-items: flex-end;
+      gap: 0.25rem;
+      height: 34px;
+    }
+
+    .equalizer span {
+      width: 8px;
+      border: 1px solid var(--line);
+      background: rgba(117, 255, 157, 0.45);
+      animation: bounce 1s infinite ease-in-out;
+    }
+
+    .equalizer span:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+
+    .equalizer span:nth-child(3) {
+      animation-delay: 0.2s;
+    }
+
+    .equalizer span:nth-child(4) {
+      animation-delay: 0.3s;
+    }
+
+    .equalizer span:nth-child(5) {
+      animation-delay: 0.4s;
+    }
+
+    .note {
+      margin: 0 0 0.45rem;
+      color: #8fffb0;
+      font-size: 0.75rem;
+    }
+
+    .guestbook-form {
+      display: grid;
+      gap: 0.45rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .guestbook-form label {
+      display: block;
+      font-size: 0.72rem;
+      text-transform: lowercase;
+    }
+
+    .guestbook-form input,
+    .guestbook-form textarea {
+      width: 100%;
+      margin-top: 0.2rem;
+      padding: 0.3rem;
+      border: 1px solid var(--line);
+      background: rgba(0, 13, 4, 0.9);
+      color: var(--text);
+      font-family: inherit;
+    }
+
+    .guestbook-form textarea {
+      min-height: 58px;
+      resize: vertical;
+    }
+
+    .guestbook-form button {
+      padding: 0.3rem;
+      border: 1px solid var(--line);
+      background: rgba(7, 59, 22, 0.5);
+      color: var(--text);
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .guestbook-form button:hover,
+    .guestbook-form button:focus-visible {
+      background: var(--line);
+      color: #001b0a;
+    }
+
+    .guestbook-list {
+      display: grid;
+      gap: 0.35rem;
+      max-height: 180px;
+      overflow-y: auto;
+      padding-right: 0.2rem;
+    }
+
+    .entry {
+      padding: 0.35rem;
+      border: 1px solid rgba(12, 255, 103, 0.5);
+      background: rgba(10, 45, 20, 0.35);
+    }
+
+    .entry p {
+      margin: 0;
+      font-size: 0.78rem;
+    }
+
+    .entry time {
+      display: block;
+      margin-top: 0.18rem;
+      color: #7adc96;
+      font-size: 0.65rem;
+    }
+
+    .blink {
+      animation: blink 1.2s steps(1) infinite;
+    }
+
+    @keyframes bounce {
+      0%,
+      100% {
+        height: 8px;
+      }
+
+      50% {
+        height: 28px;
+      }
+    }
+
+    @keyframes blink {
+      0%,
+      48%,
+      100% {
+        opacity: 1;
+      }
+
+      50%,
+      98% {
+        opacity: 0.4;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .layout-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -150,9 +504,9 @@ border:1px solid #00ff88;
   <main class="site-shell">
     <header class="hero panel">
       <p class="stamp">ONLINE SINCE 2026</p>
-      <h1>MOSSY CROWS ART </h1>
+      <h1>MOSSY CROWS ART SHRINE</h1>
       <p class="tagline">busy cybercore // old-internet relic // green+black edition</p>
-      <marquee behavior="alternate" scrollamount="7">✦ NEW UPDATE: sketchbook upload Soon!! ✦ commissions soon ✦ guestbook is OPEN ✦</marquee>
+      <marquee behavior="alternate" scrollamount="7">✦ NEW UPDATE: sketchbook upload complete ✦ commissions soon ✦ guestbook is OPEN ✦</marquee>
     </header>
 
     <nav class="topnav panel" aria-label="Main navigation">
@@ -166,14 +520,16 @@ border:1px solid #00ff88;
       <aside class="column-left">
         <section class="widget panel blink">
           <h2>status.log</h2>
-          <p>currently drawing:Ocs and ENA dream bbq</p>
+          <p>currently drawing: biomech ravens + moss angels</p>
         </section>
 
         <section class="widget panel">
           <h2>updates.bbs</h2>
           <ul>
-            <li>[03.17] homepage rebuilt </li>
-            <li>[03.17] Website revamp  </li>
+            <li>[03.17] homepage rebuilt in cybercore mode</li>
+            <li>[03.14] added ink horror studies</li>
+            <li>[03.09] lineart archive uploaded</li>
+            <li>[03.02] shrine initialized</li>
           </ul>
         </section>
 
@@ -192,9 +548,10 @@ border:1px solid #00ff88;
 
       <section class="column-main">
         <article class="panel intro" id="about">
-          <h2>about my website</h2>
+          <h2>about the shrine</h2>
           <p>
-             Welcome to my website! this is where ill upload my art, ocs stories, and so much more. ill hopefully be adding a commission link here soon!
+            welcome to my chaotic archive, built like old web personal sites: noisy, dense, and full of little things to click.
+            this space is for original characters, paintings, and sketch dumps from late-night sessions.
           </p>
         </article>
 
@@ -203,15 +560,27 @@ border:1px solid #00ff88;
           <div class="gallery-grid">
             <figure>
               <div class="art art-1"></div>
-              <figcaption> Ardos </figcaption>
+              <figcaption>toxic halo</figcaption>
             </figure>
             <figure>
               <div class="art art-2"></div>
-              <figcaption> Ardos again</figcaption>
+              <figcaption>emerald fracture</figcaption>
             </figure>
             <figure>
               <div class="art art-3"></div>
-              <figcaption> Coral Glasses </figcaption>
+              <figcaption>machine bloom</figcaption>
+            </figure>
+            <figure>
+              <div class="art art-4"></div>
+              <figcaption>neon cemetery</figcaption>
+            </figure>
+            <figure>
+              <div class="art art-5"></div>
+              <figcaption>ghost protocol</figcaption>
+            </figure>
+            <figure>
+              <div class="art art-6"></div>
+              <figcaption>crows in static</figcaption>
             </figure>
           </div>
         </article>
@@ -220,7 +589,7 @@ border:1px solid #00ff88;
       <aside class="column-right">
         <section class="widget panel">
           <h2>music player</h2>
-          <p>&gt; now playing: "DualShock-- Pizza hotline"</p>
+          <p>&gt; now playing: "green static memory"</p>
           <div class="equalizer" aria-hidden="true">
             <span></span>
             <span></span>
@@ -250,9 +619,9 @@ border:1px solid #00ff88;
         <section class="widget panel" id="contact">
           <h2>contact.sys</h2>
           <ul>
-            <li>mail: mossycrows@gmail.com</li>
-            <li>ig: @mossycrows</li>
-            <li>Tiktok: mossy_crows</li>
+            <li>mail: mossycrows@proton.me</li>
+            <li>ig: @mossy.crows</li>
+            <li>toyhouse: mossycrows</li>
           </ul>
         </section>
       </aside>
