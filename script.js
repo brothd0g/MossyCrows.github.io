@@ -62,7 +62,7 @@ seedEntries = [
     .map((entry) => {
        safeName = escapeHtml(entry.name || 'anon');
        safeMessage = escapeHtml(entry.message || '');
-       date = new Date(entry.createdAt);
+       date =  Date(entry.createdAt);
        safeDate = Number.isNaN(date.getTime()) ? '' : date.toLocaleDateString();
 
        [
