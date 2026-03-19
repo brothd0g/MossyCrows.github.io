@@ -1,0 +1,105 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/mia.html b/mia.html
+new file mode 100644
+index 0000000000000000000000000000000000000000..2b63fd0c1863105029d7b4feddb9dce22be1f9e3
+--- /dev/null
++++ b/mia.html
+@@ -0,0 +1,95 @@
++<!DOCTYPE html>
++<html lang="en">
++  <head>
++    <meta charset="UTF-8" />
++    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++    <title>Mossy Crows | Mia</title>
++    <link rel="preconnect" href="https://fonts.googleapis.com" />
++    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
++    <link
++      href="https://fonts.googleapis.com/css2?family=Concert+One&family=VT323&family=IBM+Plex+Mono:wght@400;500;700&display=swap"
++      rel="stylesheet"
++    />
++    <link rel="stylesheet" href="style.css" />
++  </head>
++  <body data-page="mia">
++    <div class="stars"></div>
++    <div class="scanlines"></div>
++
++    <div class="page-shell">
++      <aside class="floating-rail left-rail">
++        <div class="sticker rotate-left">
++          <p>mia shrine</p>
++          <span>this could hold a blinkie, chibi art, or a decorative doodle.</span>
++        </div>
++        <div class="gif-slot">MIA GIF</div>
++      </aside>
++
++      <main class="subpage-grid">
++        <section class="panel page-hero">
++          <div>
++            <p class="eyebrow">OC shrine // 02</p>
++            <h1>Mia</h1>
++            <p>
++              A matching character page with plenty of room for softer art, emotional notes,
++              relationships, or design references. Keep the structure or remix it however you want.
++            </p>
++            <a class="back-link" href="index.html">&larr; back to home</a>
++          </div>
++          <div class="art-placeholder">Mia hero illustration</div>
++        </section>
++
++        <section class="panel wide-panel info-strip">
++          <div class="info-list">
++            <p class="section-label">profile</p>
++            <ul>
++              <li>age / vibe / role</li>
++              <li>favorite object</li>
++              <li>special motif</li>
++              <li>best expression</li>
++            </ul>
++          </div>
++          <div class="mood-card">
++            <p class="section-label">aesthetic notes</p>
++            <ul>
++              <li>lace and ribbons</li>
++              <li>moonlit windows</li>
++              <li>ink-stained journal pages</li>
++            </ul>
++          </div>
++          <div class="mood-card">
++            <p class="section-label">favorite details</p>
++            <p>
++              Use this box for costume details, relationships, or a tiny paragraph introducing Mia.
++            </p>
++          </div>
++        </section>
++
++        <section class="panel gallery-panel">
++          <div class="panel-headline">
++            <h2>Mia gallery</h2>
++            <span>5 image slots ready for uploads</span>
++          </div>
++          <div class="gallery-grid">
++            <article class="gallery-item"><div class="gallery-image">Mia image 01</div><h3>portrait</h3><p class="caption">Lead image for the page.</p></article>
++            <article class="gallery-item"><div class="gallery-image">Mia image 02</div><h3>style study</h3><p class="caption">Experiment piece, style test, or color study.</p></article>
++            <article class="gallery-item"><div class="gallery-image">Mia image 03</div><h3>alternate outfit</h3><p class="caption">Put a costume variation or AU design here.</p></article>
++            <article class="gallery-item"><div class="gallery-image">Mia image 04</div><h3>scene moment</h3><p class="caption">Use this for a comic panel or a narrative moment.</p></article>
++            <article class="gallery-item"><div class="gallery-image">Mia image 05</div><h3>favorite sketch</h3><p class="caption">A rough page can look great in a shrine layout too.</p></article>
++          </div>
++        </section>
++      </main>
++
++      <aside class="floating-rail right-rail">
++        <div class="gif-slot">BUTTONS</div>
++        <div class="mini-player panel">
++          <p class="section-label">playlist</p>
++          <h3>Mia songs</h3>
++          <p>Add a character playlist, poem fragment, or diary entry snippet here.</p>
++        </div>
++      </aside>
++    </div>
++
++    <script src="script.js"></script>
++  </body>
++</html>
+ 
+EOF
+)
