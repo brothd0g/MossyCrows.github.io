@@ -1,253 +1,277 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a/index.html b/index.html
-index b799c5b9847683a155dd94d25a888da400d4dd5b..fcb496b78e1b7dc3a2f06f1c28b4b84b91fc04e7 100644
---- a/index.html
-+++ b/index.html
-@@ -1,133 +1,111 @@
--@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
--
--body{
--margin:0;
--background:#020402;
--color:#8CFF8C;
--font-family:'Orbitron', monospace;
--overflow-x:hidden;
--}
--
--/* GRID BACKGROUND */
--
--body::before{
--content:"";
--position:fixed;
--top:0;
--left:0;
--width:100%;
--height:100%;
--
--background-image:
--linear-gradient(#00ff88 1px, transparent 1px),
--linear-gradient(90deg,#00ff88 1px, transparent 1px);
--
--background-size:40px 40px;
--opacity:0.18;
--z-index:-2;
--}
--
--/* SCANLINES */
--
--.scanlines{
--position:fixed;
--width:100%;
--height:100%;
--
--background:repeating-linear-gradient(
--transparent 0px,
--transparent 2px,
--rgba(0,0,0,0.35) 3px
--);
--
--pointer-events:none;
--z-index:5;
--}
--
--/* MAIN AREA */
--
--.container{
--width:1000px;
--margin:auto;
--padding:40px;
--}
--
--/* TITLE */
--
--.logo{
--text-align:center;
--font-size:40px;
--letter-spacing:6px;
--
--color:#aaffaa;
--
--text-shadow:
--0 0 10px #00ff88,
--0 0 20px #00ff88,
--0 0 40px #00ff88;
--}
--
--/* NAV */
--
--.nav a{
--border:1px solid #00ff88;
--padding:6px 12px;
--margin:5px;
--text-decoration:none;
--color:#8CFF8C;
--}
--
--.nav a:hover{
--background:#00ff88;
--color:black;
--}
--
--/* SIDEBAR */
--
--.sidebar{
--position:absolute;
--right:40px;
--top:140px;
--width:220px;
--}
--
--/* WIDGETS */
--
--.widget{
--background:#001100;
--border:2px solid #00ff88;
--margin-bottom:20px;
--padding:10px;
--
--box-shadow:
--0 0 10px #00ff88,
--inset 0 0 10px #00ff88;
--}
--
--/* SCROLLBOX */
--
--.scrollbox{
--height:120px;
--overflow-y:auto;
--font-size:13px;
--}
--
--/* PANEL */
--
--.panel{
--background:#001100;
--border:2px solid #00ff88;
--padding:20px;
--
--box-shadow:
--0 0 10px #00ff88,
--inset 0 0 10px #00ff88;
--}
--
--/* WEB BUTTONS */
--
--.button88 img{
--width:88px;
--margin:3px;
--border:1px solid #00ff88;
--}
-+<!DOCTYPE html>
-+<html lang="en">
-+<head>
-+  <meta charset="UTF-8" />
-+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-+  <title>Mossy Crows // Cyber Shrine</title>
-+  <link rel="preconnect" href="https://fonts.googleapis.com" />
-+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap" rel="stylesheet" />
-+  <link rel="stylesheet" href="style.css" />
-+</head>
-+<body>
-+  <div class="scanlines" aria-hidden="true"></div>
-+  <div class="noise" aria-hidden="true"></div>
-+
-+  <main class="site-shell">
-+    <header class="hero panel">
-+      <p class="stamp">ONLINE SINCE 2026</p>
-+      <h1>MOSSY CROWS ART SHRINE</h1>
-+      <p class="tagline">busy cybercore // old-internet relic // green+black edition</p>
-+      <marquee behavior="alternate" scrollamount="7">✦ NEW UPDATE: sketchbook upload complete ✦ commissions soon ✦ guestbook is OPEN ✦</marquee>
-+    </header>
-+
-+    <nav class="topnav panel" aria-label="Main navigation">
-+      <a href="#gallery">gallery.exe</a>
-+      <a href="#about">about.txt</a>
-+      <a href="#links">webrings</a>
-+      <a href="#contact">contact.sys</a>
-+    </nav>
-+
-+    <section class="layout-grid">
-+      <aside class="column-left">
-+        <section class="widget panel blink">
-+          <h2>status.log</h2>
-+          <p>currently drawing: biomech ravens + moss angels</p>
-+        </section>
-+
-+        <section class="widget panel">
-+          <h2>updates.bbs</h2>
-+          <ul>
-+            <li>[03.17] homepage rebuilt in cybercore mode</li>
-+            <li>[03.14] added ink horror studies</li>
-+            <li>[03.09] lineart archive uploaded</li>
-+            <li>[03.02] shrine initialized</li>
-+          </ul>
-+        </section>
-+
-+        <section class="widget panel" id="links">
-+          <h2>88x31 nexus</h2>
-+          <div class="buttons">
-+            <span>PIXEL LOVER</span>
-+            <span>NEOCITIES</span>
-+            <span>WEBRING NOW</span>
-+            <span>CRT MODE</span>
-+            <span>DARKNET ART</span>
-+            <span>GLITCH CLUB</span>
-+          </div>
-+        </section>
-+      </aside>
-+
-+      <section class="column-main">
-+        <article class="panel intro" id="about">
-+          <h2>about the shrine</h2>
-+          <p>
-+            welcome to my chaotic archive, built like old web personal sites: noisy, dense, and full of little things to click.
-+            this space is for original characters, paintings, and sketch dumps from late-night sessions.
-+          </p>
-+        </article>
-+
-+        <article class="panel" id="gallery">
-+          <h2>gallery feed</h2>
-+          <div class="gallery-grid">
-+            <figure><div class="art art-1"></div><figcaption>toxic halo</figcaption></figure>
-+            <figure><div class="art art-2"></div><figcaption>emerald fracture</figcaption></figure>
-+            <figure><div class="art art-3"></div><figcaption>machine bloom</figcaption></figure>
-+            <figure><div class="art art-4"></div><figcaption>neon cemetery</figcaption></figure>
-+            <figure><div class="art art-5"></div><figcaption>ghost protocol</figcaption></figure>
-+            <figure><div class="art art-6"></div><figcaption>crows in static</figcaption></figure>
-+          </div>
-+        </article>
-+      </section>
-+
-+      <aside class="column-right">
-+        <section class="widget panel">
-+          <h2>music player</h2>
-+          <p>&gt; now playing: "green static memory"</p>
-+          <div class="equalizer" aria-hidden="true">
-+            <span></span><span></span><span></span><span></span><span></span>
-+          </div>
-+        </section>
-+
-+        <section class="widget panel">
-+          <h2>guestbook.txt</h2>
-+          <p><strong>solstice.exe:</strong> this theme RULES</p>
-+          <p><strong>voidangel:</strong> bookmarked instantly</p>
-+          <p><strong>mosswire:</strong> post process videos next!</p>
-+        </section>
-+
-+        <section class="widget panel" id="contact">
-+          <h2>contact.sys</h2>
-+          <ul>
-+            <li>mail: mossycrows@proton.me</li>
-+            <li>ig: @mossy.crows</li>
-+            <li>toyhouse: mossycrows</li>
-+          </ul>
-+        </section>
-+      </aside>
-+    </section>
-+  </main>
-+</body>
-+</html>
- 
-EOF
-)
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body{
+margin:0;
+background:#020402;
+color:#8CFF8C;
+font-family:'Orbitron', monospace;
+overflow-x:hidden;
+}
+
+/* GRID BACKGROUND */
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background-image:
+linear-gradient(#00ff88 1px, transparent 1px),
+linear-gradient(90deg,#00ff88 1px, transparent 1px);
+
+background-size:40px 40px;
+opacity:0.18;
+z-index:-2;
+}
+
+/* SCANLINES */
+
+.scanlines{
+position:fixed;
+width:100%;
+height:100%;
+
+background:repeating-linear-gradient(
+transparent 0px,
+transparent 2px,
+rgba(0,0,0,0.35) 3px
+);
+
+pointer-events:none;
+z-index:5;
+}
+
+/* MAIN AREA */
+
+.container{
+width:1000px;
+margin:auto;
+padding:40px;
+}
+
+/* TITLE */
+
+.logo{
+text-align:center;
+font-size:40px;
+letter-spacing:6px;
+
+color:#aaffaa;
+
+text-shadow:
+0 0 10px #00ff88,
+0 0 20px #00ff88,
+0 0 40px #00ff88;
+}
+
+/* NAV */
+
+.nav a{
+border:1px solid #00ff88;
+padding:6px 12px;
+margin:5px;
+text-decoration:none;
+color:#8CFF8C;
+}
+
+.nav a:hover{
+background:#00ff88;
+color:black;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+position:absolute;
+right:40px;
+top:140px;
+width:220px;
+}
+
+/* WIDGETS */
+
+.widget{
+background:#001100;
+border:2px solid #00ff88;
+margin-bottom:20px;
+padding:10px;
+
+box-shadow:
+0 0 10px #00ff88,
+inset 0 0 10px #00ff88;
+}
+
+/* SCROLLBOX */
+
+.scrollbox{
+height:120px;
+overflow-y:auto;
+font-size:13px;
+}
+
+/* PANEL */
+
+.panel{
+background:#001100;
+border:2px solid #00ff88;
+padding:20px;
+
+box-shadow:
+0 0 10px #00ff88,
+inset 0 0 10px #00ff88;
+}
+
+/* WEB BUTTONS */
+
+.button88 img{
+width:88px;
+margin:3px;
+border:1px solid #00ff88;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mossy Crows // Cyber Shrine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <main class="site-shell">
+    <header class="hero panel">
+      <p class="stamp">ONLINE SINCE 2026</p>
+      <h1>MOSSY CROWS ART SHRINE</h1>
+      <p class="tagline">busy cybercore // old-internet relic // green+black edition</p>
+      <marquee behavior="alternate" scrollamount="7">✦ NEW UPDATE: sketchbook upload complete ✦ commissions soon ✦ guestbook is OPEN ✦</marquee>
+    </header>
+
+    <nav class="topnav panel" aria-label="Main navigation">
+      <a href="#gallery">gallery.exe</a>
+      <a href="#about">about.txt</a>
+      <a href="#links">webrings</a>
+      <a href="#contact">contact.sys</a>
+    </nav>
+
+    <section class="layout-grid">
+      <aside class="column-left">
+        <section class="widget panel blink">
+          <h2>status.log</h2>
+          <p>currently drawing: biomech ravens + moss angels</p>
+        </section>
+
+        <section class="widget panel">
+          <h2>updates.bbs</h2>
+          <ul>
+            <li>[03.17] homepage rebuilt in cybercore mode</li>
+            <li>[03.14] added ink horror studies</li>
+            <li>[03.09] lineart archive uploaded</li>
+            <li>[03.02] shrine initialized</li>
+          </ul>
+        </section>
+
+        <section class="widget panel" id="links">
+          <h2>88x31 nexus</h2>
+          <div class="buttons">
+            <span>PIXEL LOVER</span>
+            <span>NEOCITIES</span>
+            <span>WEBRING NOW</span>
+            <span>CRT MODE</span>
+            <span>DARKNET ART</span>
+            <span>GLITCH CLUB</span>
+          </div>
+        </section>
+      </aside>
+
+      <section class="column-main">
+        <article class="panel intro" id="about">
+          <h2>about the shrine</h2>
+          <p>
+            welcome to my chaotic archive, built like old web personal sites: noisy, dense, and full of little things to click.
+            this space is for original characters, paintings, and sketch dumps from late-night sessions.
+          </p>
+        </article>
+
+        <article class="panel" id="gallery">
+          <h2>gallery feed</h2>
+          <div class="gallery-grid">
+            <figure>
+              <div class="art art-1"></div>
+              <figcaption>toxic halo</figcaption>
+            </figure>
+            <figure>
+              <div class="art art-2"></div>
+              <figcaption>emerald fracture</figcaption>
+            </figure>
+            <figure>
+              <div class="art art-3"></div>
+              <figcaption>machine bloom</figcaption>
+            </figure>
+            <figure>
+              <div class="art art-4"></div>
+              <figcaption>neon cemetery</figcaption>
+            </figure>
+            <figure>
+              <div class="art art-5"></div>
+              <figcaption>ghost protocol</figcaption>
+            </figure>
+            <figure>
+              <div class="art art-6"></div>
+              <figcaption>crows in static</figcaption>
+            </figure>
+          </div>
+        </article>
+      </section>
+
+      <aside class="column-right">
+        <section class="widget panel">
+          <h2>music player</h2>
+          <p>&gt; now playing: "green static memory"</p>
+          <div class="equalizer" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </section>
+
+        <section class="widget panel" id="guestbook">
+          <h2>guestbook.txt</h2>
+          <p class="note">Sign the shrine. Entries save in your browser on this device.</p>
+
+          <form id="guestbook-form" class="guestbook-form">
+            <label for="guest-name">handle</label>
+            <input id="guest-name" name="name" maxlength="24" required placeholder="screen_name.exe" />
+
+            <label for="guest-message">message</label>
+            <textarea id="guest-message" name="message" maxlength="160" required placeholder="leave static in the wires..."></textarea>
+
+            <button type="submit">submit entry</button>
+          </form>
+
+          <div id="guestbook-list" class="guestbook-list" aria-live="polite"></div>
+        </section>
+
+        <section class="widget panel" id="contact">
+          <h2>contact.sys</h2>
+          <ul>
+            <li>mail: mossycrows@proton.me</li>
+            <li>ig: @mossy.crows</li>
+            <li>toyhouse: mossycrows</li>
+          </ul>
+        </section>
+      </aside>
+    </section>
+  </main>
+</body>
+</html>
