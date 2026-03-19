@@ -1,5 +1,5 @@
-const guestbookKey = 'mossycrows_guestbook_entries_v1';
-const seedEntries = [
+guestbookKey = 'mossycrows_guestbook_entries_v1';
+seedEntries = [
   {
     name: 'solstice',
     message: 'this is so cool',
@@ -17,13 +17,13 @@ const seedEntries = [
   }
 ];
 
-const form = document.getElementById('guestbook-form');
-const nameInput = document.getElementById('guest-name');
-const messageInput = document.getElementById('guest-message');
-const list = document.getElementById('guestbook-list');
+ form = document.getElementById('guestbook-form');
+ nameInput = document.getElementById('guest-name');
+ messageInput = document.getElementById('guest-message');
+ list = document.getElementById('guestbook-list');
 
-function escapeHtml(text) {
-  return text
+ escapeHtml(text) {
+   text
     .replaceAll('&', '&amp;')
     .replaceAll('<', '&lt;')
     .replaceAll('>', '&gt;')
@@ -31,41 +31,41 @@ function escapeHtml(text) {
     .replaceAll("'", '&#39;');
 }
 
-function loadEntries() {
-  try {
-    const stored = localStorage.getItem(guestbookKey);
+ loadEntries() {
+   {
+     stored = localStorage.getItem(guestbookKey);
 
-    if (!stored) {
+     (!stored) {
       localStorage.setItem(guestbookKey, JSON.stringify(seedEntries));
-      return [...seedEntries];
+       [...seedEntries];
     }
 
-    const parsed = JSON.parse(stored);
+     parsed = JSON.parse(stored);
 
-    if (!Array.isArray(parsed)) {
-      return [...seedEntries];
+     (!Array.isArray(parsed)) {
+       [...seedEntries];
     }
 
-    return parsed.slice(0, 30);
-  } catch (error) {
+     parsed.slice(0, 30);
+  }  (error) {
     console.warn('Guestbook entries could not be loaded.', error);
-    return [...seedEntries];
+     [...seedEntries];
   }
 }
 
-function saveEntries(entries) {
+ saveEntries(entries) {
   localStorage.setItem(guestbookKey, JSON.stringify(entries.slice(0, 30)));
 }
 
-function renderEntries(entries) {
-  const markup = entries
+ renderEntries(entries) {
+   markup = entries
     .map((entry) => {
-      const safeName = escapeHtml(entry.name || 'anon');
-      const safeMessage = escapeHtml(entry.message || '');
-      const date = new Date(entry.createdAt);
-      const safeDate = Number.isNaN(date.getTime()) ? '' : date.toLocaleDateString();
+       safeName = escapeHtml(entry.name || 'anon');
+       safeMessage = escapeHtml(entry.message || '');
+       date = new Date(entry.createdAt);
+       safeDate = Number.isNaN(date.getTime()) ? '' : date.toLocaleDateString();
 
-      return [
+       [
         '<article class="entry">',
         `<p><strong>${safeName}:</strong> ${safeMessage}</p>`,
         `<time>${safeDate}</time>`,
@@ -77,25 +77,25 @@ function renderEntries(entries) {
   list.innerHTML = markup;
 }
 
-if (form && nameInput && messageInput && list) {
-  let entries = loadEntries();
+ (form && nameInput && messageInput && list) {
+   entries = loadEntries();
   renderEntries(entries);
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    const name = nameInput.value.trim();
-    const message = messageInput.value.trim();
+     name = nameInput.value.trim();
+     message = messageInput.value.trim();
 
-    if (!name || !message) {
-      return;
+     (!name || !message) {
+      ;
     }
 
     entries = [
       {
         name,
         message,
-        createdAt: new Date().toISOString()
+        createdAt:  Date().toISOString()
       },
       ...entries
     ].slice(0, 30);
